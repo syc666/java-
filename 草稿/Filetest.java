@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
 import java.util.Scanner;
 
 public class Filetest {
-  @SuppressWarnings("unused")
+  @SuppressWarnings({ "unused", "resource" })
 public static void main(String args[]) {
 	//  Scanner console=new Scanner(System.in);
 //	 
@@ -35,6 +35,19 @@ public static void main(String args[]) {
 	    File f2=new File("d:\\jintian","4.txt");
 	    f2.mkdirs();
 	    System.out.println(f2.exists());
+	    
+	    RandomAccessFile raf1=new RandomAccessFile("d:/jintian/1.txt","rw");
+	    raf1.writeBytes("hello\n");
+	    raf1.writeBytes("hh");
+	   
+	    
+	    RandomAccessFile raf2=new RandomAccessFile("d:/jintian/1.txt","rw");
+	    String s;
+	    while((s=raf1.readLine())!=null){
+	    	System.out.println(s);
+	    }
+	    
+	    
 	    
 	    
 	  }
